@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | HighTees</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #79c3f5;
+      --blue-dark: #58afea;
+      --ink: #26344f;
+      --page: #f3f7fd;
+      --white: #fff;
+      --line: #d5d5d5;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--page);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .page-label {
+      display: none;
+    }
+
+    .site {
+      width: 100%;
+      max-width: none;
+      min-height: 100vh;
+      margin: 0;
+      background: var(--page);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .navbar {
+      min-height: 63px;
+      padding: 0 6.2% 0 4.6%;
+      background: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .navbar .logo img {
+    width: 170px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    }
+
+    footer .logo img {
+        width: 130px;
+        height: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(28px, 7vw, 96px);
+    }
+    .nav-links a {
+      color: #FFFFFF;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity .2s ease;
+    }
+    .nav-links a:hover, .nav-links a:focus { opacity: .62; }
+
+    main {
+      width: 100%;
+      flex: 1;
+      padding: 46px 10.8% 36px;
+    }
+
+    h1 {
+      margin: 0 0 39px;
+      text-align: center;
+      font-size: clamp(30px, 3.5vw, 40px);
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: .2px;
+    }
+
+    .info-cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 5.8%;
+      margin-bottom: 26px;
+    }
+
+    .info-card {
+      min-height: 121px;
+      padding: 17px 10px 13px;
+      background: var(--white);
+      border: 1.5px solid #c9c9c9;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--ink);
+      text-decoration: none;
+      box-shadow: 0 0 1px rgba(0,0,0,.08);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .info-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 14px rgba(38,52,79,.10);
+    }
+    .info-card svg {
+      width: 25px;
+      height: 25px;
+      margin-bottom: 5px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .info-card strong { font-size: 13px; margin-bottom: 4px; }
+    .info-card span { font-size: 10px; line-height: 1.35; }
+
+    .contact-area {
+      display: grid;
+      grid-template-columns: 1fr 1.52fr;
+      gap: 9%;
+      align-items: start;
+      margin-top: 25px;
+    }
+
+    .intro { padding-top: 3px; }
+    .intro h2 {
+      margin: 0 0 24px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .intro p {
+      max-width: 260px;
+      margin: 0;
+      font-size: 11px;
+      line-height: 1.55;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    input, textarea {
+      width: 100%;
+      border: 1px solid #d5d5d5;
+      border-radius: 0;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+      font-size: 10px;
+      padding: 0 12px;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    input { height: 33px; }
+    textarea {
+      min-height: 88px;
+      resize: vertical;
+      padding-top: 10px;
+    }
+    input:focus, textarea:focus {
+      border-color: var(--blue-dark);
+      box-shadow: 0 0 0 2px rgba(121,195,245,.18);
+    }
+    input::placeholder, textarea::placeholder { color: #35415a; opacity: 1; }
+    textarea::placeholder { font-weight: 700; }
+
+    .submit-button {
+      width: 192px;
+      max-width: 100%;
+      min-height: 30px;
+      margin-top: 12px;
+      border: 1px solid #1c2a43;
+      border-radius: 20px;
+      background: var(--blue);
+      color: #14233c;
+      font-family: inherit;
+      font-size: 10px;
+      cursor: pointer;
+      transition: background .2s, transform .2s;
+    }
+    .submit-button:hover { background: var(--blue-dark); transform: translateY(-1px); }
+    .submit-button:disabled { opacity: .65; cursor: wait; }
+
+    .form-status {
+      min-height: 16px;
+      margin: 2px 0 0;
+      font-size: 11px;
+      line-height: 1.4;
+    }
+    .form-status.error { color: #b42318; }
+    .form-status.success { color: #187344; }
+
+    footer {
+      position: relative;
+      min-height: 88px;
+      padding: 18px 6.2%;
+      background: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    footer .logo { font-size: 21px; }
+    .footer-content {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-right: 0;
+      font-size: 10px;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 48px;
+    }
+    .footer-links a { color: #111d32; text-decoration: underline; }
+    .copyright { margin: 0; }
+
+    @media (min-width: 1300px) {
+      main { padding-top: 52px; }
+    }
+    @media (max-width: 760px) {
+      body { padding: 0; }
+      .page-label { margin-top: 12px; }
+      .navbar { padding: 17px 22px; flex-wrap: wrap; }
+      .nav-links { width: 100%; justify-content: space-between; gap: 12px; }
+      .nav-links a { font-size: 13px; }
+      main { padding: 36px 7% 32px; }
+      h1 { margin-bottom: 28px; }
+      .info-cards { gap: 12px; }
+      .info-card { min-height: 116px; }
+      .contact-area { gap: 28px; grid-template-columns: 1fr 1.5fr; }
+      .footer-content {
+        position: static;
+        transform: none;
+        margin-right: 0;
+      }
+      .footer-links { gap: 20px; }
+    }
+    @media (max-width: 560px) {
+      .info-cards { grid-template-columns: 1fr; gap: 12px; }
+      .info-card { min-height: 105px; }
+      .contact-area { grid-template-columns: 1fr; gap: 22px; }
+      .intro p { max-width: 100%; }
+      footer { flex-direction: column; justify-content: center; padding: 22px 16px; gap: 18px; }
+      .footer-content { gap: 12px; }
+      .footer-links { gap: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-label">Contacts</div>
+
+  <div class="site" id="contact">
+    <header class="navbar">
+      <a href="index.html" class="logo">
+    <img src="hightees-logo.png" alt="HighTees Logo">
+</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <h1>CONTACT US</h1>
+
+      <section class="info-cards" aria-label="Contact information">
+        <a class="info-card" href="mailto:orders@examplewebsite142.com">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5h20v14H2z"/><path d="m2 6 10 8 10-8"/></svg>
+          <strong>Email Us</strong>
+          <span>orders@examplewebsite142.com</span>
+        </a>
+
+        <a class="info-card" href="https://www.google.com/maps/search/?api=1&query=Philippines" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <strong>Our Location</strong>
+          <span>Philippines</span>
+        </a>
+
+        <div class="info-card">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 6v6l4 2.5"/></svg>
+          <strong>Business Hours</strong>
+          <span>Monday - Friday<br>9:00 AM - 5:00 PM</span>
+        </div>
+      </section>
+
+      <section class="contact-area" aria-label="Send us a message">
+        <div class="intro">
+          <h2>Send Us a Message</h2>
+          <p>Fill out the form below and we’ll get back to you as soon as possible.</p>
+        </div>
+
+        <form id="contactForm">
+          <input type="text" id="fullName" name="fullName" placeholder="Full Name *" autocomplete="name" required>
+          <input type="email" id="email" name="email" placeholder="Email Address *" autocomplete="email" required>
+          <input type="text" id="subject" name="subject" placeholder="Subject *" required>
+          <textarea id="message" name="message" placeholder="Message *" required></textarea>
+          <button class="submit-button" id="submitButton" type="submit">Send Message</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <a class="logo" href="index.html" aria-label="HighTees home">
+        <img src="hightees-logo.png" alt="HighTees Logo">
+    </a>
+      <div class="footer-content">
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="#contact">Contact Us</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms and Conditions</a>
+        </nav>
+        <p class="copyright">©<span id="year"></span> HighTees</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Keep the copyright year current.
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Validate the form, then open the visitor's email app with the message filled in.
+    // To send messages directly without an email app, connect this form to a backend service.
+    const form = document.getElementById("contactForm");
+    const statusMessage = document.getElementById("formStatus");
+    const submitButton = document.getElementById("submitButton");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      statusMessage.textContent = "";
+      statusMessage.className = "form-status";
+
+      if (!form.reportValidity()) return;
+
+      const name = document.getElementById("fullName").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const subject = document.getElementById("subject").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (!name || !email || !subject || !message) {
+        statusMessage.textContent = "Please complete all required fields.";
+        statusMessage.classList.add("error");
+        return;
+      }
+
+      const emailSubject = encodeURIComponent("HighTees Contact: " + subject);
+      const emailBody = encodeURIComponent(
+        "Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message
+      );
+
+      submitButton.disabled = true;
+      submitButton.textContent = "Opening Email App...";
+
+      window.location.href = "mailto:orders@examplewebsite142.com?subject=" + emailSubject + "&body=" + emailBody;
+
+      statusMessage.textContent = "Your email app should open with your message ready to send.";
+      statusMessage.classList.add("success");
+
+      window.setTimeout(function () {
+        submitButton.disabled = false;
+        submitButton.textContent = "Send Message";
+      }, 1800);
+    });
+  </script>
+</body>
+</html>
