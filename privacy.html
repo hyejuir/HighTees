@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Read the HighTees Privacy Policy: what personal information we collect, how we use and protect it, and how to contact us.">
+
+    <title>Privacy Policy | HighTees</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Brand fonts (from the HighTees brand kit) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,800;1,900&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Privacy page styles (placed before the shared style.css, so style.css wins wherever both set the same thing) -->
+    <style>
+        /* =========================================================
+           HighTees — Privacy Policy page
+           Colors and fonts from the HighTees brand kit:
+           Sky #7CC6FE · Aqua #8EE3D8 · Lilac #C9B8FF · Ink #25324A · Cloud #F4F8FD
+           Headings: Inter ExtraBold · Body: Source Sans 3
+           Loaded BEFORE css/style.css, so the shared navbar/footer
+           styles in style.css take over wherever both set a rule.
+           ========================================================= */
+
+        :root {
+            --ht-sky: #7CC6FE;
+            --ht-aqua: #8EE3D8;
+            --ht-lilac: #C9B8FF;
+            --ht-ink: #25324A;
+            --ht-ink-soft: #3A4760;
+            --ht-muted: #556178;
+            --ht-cloud: #F4F8FD;
+            --ht-line: #E1E8F2;
+        }
+
+        body {
+            font-family: "Source Sans 3", system-ui, sans-serif;
+            color: var(--ht-ink);
+            background: var(--ht-cloud);
+        }
+
+        /* ---------- Skip link (keyboard users) ---------- */
+        .skip-link {
+            position: absolute;
+            left: 1rem;
+            top: -3rem;
+            z-index: 1000;
+            padding: .5rem 1rem;
+            background: var(--ht-ink);
+            color: #fff;
+            border-radius: .5rem;
+            text-decoration: none;
+        }
+        .skip-link:focus { top: 1rem; color: #fff; }
+
+        /* Visible focus everywhere */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid var(--ht-ink);
+            outline-offset: 3px;
+        }
+
+        /* ---------- Shared navbar fallback (style.css overrides) ---------- */
+        .navbar-custom {
+            background: var(--ht-sky);
+            padding-top: .75rem;
+            padding-bottom: .75rem;
+        }
+        .navbar-custom .logo { padding: 0; }
+        .navbar-custom .logo-img { height: 52px; width: auto; display: block; }
+        .navbar-custom .nav-link {
+            color: var(--ht-ink);
+            font-weight: 600;
+            padding: .75rem 1rem;
+        }
+        .navbar-custom .nav-link:hover { text-decoration: underline; color: var(--ht-ink); }
+
+        /* ---------- Page ---------- */
+        .privacy-main {
+            padding: 4rem 0 6rem;
+        }
+        .privacy-main:focus { outline: none; }
+
+        .privacy-header { margin-bottom: 2rem; }
+
+        .privacy-title {
+            font-family: "Inter", sans-serif;
+            font-weight: 800;
+            font-size: 2.5rem;           /* H1 40pt in the brand kit */
+            letter-spacing: -.5px;
+            margin-bottom: .5rem;
+        }
+
+        .privacy-updated {
+            font-size: .8125rem;          /* Small 13pt */
+            color: var(--ht-muted);
+            margin: 0;
+        }
+
+        .privacy-card {
+            background: #fff;
+            border: 1px solid var(--ht-line);
+            border-radius: 1rem;
+            padding: 3rem 3.5rem;
+        }
+
+        /* Numbered list with Sky number badges */
+        .privacy-list {
+            list-style: none;
+            counter-reset: privacy;
+            margin: 0;
+            padding: 0;
+        }
+
+        .privacy-item {
+            counter-increment: privacy;
+            position: relative;
+            padding-left: 3.75rem;
+            padding-bottom: 1.75rem;
+            margin-bottom: 1.75rem;
+            border-bottom: 1px solid #E9EEF5;
+        }
+        .privacy-item:last-child {
+            border-bottom: 0;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .privacy-item::before {
+            content: counter(privacy);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background: var(--ht-sky);
+            color: var(--ht-ink);
+            font-family: "Inter", sans-serif;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .privacy-heading {
+            font-family: "Inter", sans-serif;
+            font-weight: 800;
+            font-size: 1.25rem;          /* H3 20pt in the brand kit */
+            line-height: 1.3;
+            padding-top: .45rem;         /* lines up with the badge */
+            margin-bottom: .5rem;
+        }
+
+        .privacy-item p {
+            font-size: 1rem;             /* Body 16pt */
+            line-height: 1.65;
+            color: var(--ht-ink-soft);
+            margin-bottom: 0;
+        }
+
+        .privacy-email {
+            color: var(--ht-ink);
+            font-weight: 600;
+            text-decoration-color: var(--ht-sky);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 3px;
+        }
+        .privacy-email:hover { color: var(--ht-ink); text-decoration-color: var(--ht-ink); }
+
+        /* Primary button from the brand kit: Sky fill, Ink text, Source Sans 3 SemiBold 15 */
+        .btn-privacy {
+            display: inline-block;
+            margin-top: 1rem;
+            text-decoration: none;
+            background: var(--ht-sky);
+            color: var(--ht-ink);
+            font-weight: 600;
+            font-size: .9375rem;
+            padding: .75rem 1.75rem;
+            border-radius: 999px;
+            border: 0;
+        }
+        .btn-privacy:hover,
+        .btn-privacy:focus-visible {
+            background: #5BB5F8;
+            color: var(--ht-ink);
+        }
+
+        /* ---------- Shared footer fallback (style.css overrides) ---------- */
+        .footer {
+            background: var(--ht-sky);
+            color: var(--ht-ink);
+            padding: 1.75rem 0;
+        }
+        .footer-inner {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .footer-logo-img { height: 44px; width: auto; display: block; }
+        .footer-center { text-align: center; }
+        .footer .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: .25rem 1.5rem;
+            margin-bottom: .25rem;
+        }
+        .footer .footer-links a {
+            color: var(--ht-ink);
+            padding: .5rem .25rem;
+        }
+        .footer .footer-links a[aria-current="page"] { font-weight: 600; }
+        .footer .copyright {
+            font-size: .8125rem;
+            margin: 0;
+        }
+
+        /* ---------- Small screens ---------- */
+        @media (max-width: 767.98px) {
+            .footer-inner { grid-template-columns: 1fr; justify-items: center; }
+            .footer-spacer { display: none; }
+        }
+
+        @media (max-width: 575.98px) {
+            .privacy-main { padding: 2.5rem 0 4rem; }
+            .privacy-title { font-size: 2rem; }
+            .privacy-card { padding: 1.75rem 1.25rem; border-radius: .75rem; }
+            .privacy-item { padding-left: 3.25rem; }
+            .privacy-item::before { width: 2.25rem; height: 2.25rem; }
+            .privacy-heading { font-size: 1.125rem; padding-top: .4rem; }
+            .navbar-custom .logo-img { height: 42px; }
+        }
+    </style>
+
+    <!-- Custom CSS (shared) -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="page-privacy">
+
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!-- HEADER + NAVBAR -->
+    <header class="site-header">
+    <nav class="navbar navbar-expand-lg navbar-custom" aria-label="Main navigation">
+        <div class="container">
+
+            <a class="navbar-brand logo" href="index.html">
+                <img src="images/hightees-logo.png" alt="HighTees home" class="logo-img" width="167" height="52">
+            </a>
+
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="shop.html">Shop</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    </header>
+
+
+    <!-- PRIVACY POLICY -->
+    <main id="main-content" class="privacy-main" tabindex="-1">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-9 col-xl-8">
+
+                    <header class="privacy-header text-center">
+                        <h1 class="privacy-title">Privacy Policy</h1>
+                        <p class="privacy-updated">
+                            Last updated: <time datetime="2026-10-15">October 15, 2026</time>
+                        </p>
+                    </header>
+
+                    <article class="privacy-card">
+                        <ol class="privacy-list">
+
+                            <li class="privacy-item">
+                                <section aria-labelledby="collect-heading">
+                                    <h2 id="collect-heading" class="privacy-heading">Information We Collect</h2>
+                                    <p>
+                                        We collect personal information you provide to us, such as your name,
+                                        email address, shipping address, and order details when you place an
+                                        order or contact us.
+                                    </p>
+                                </section>
+                            </li>
+
+                            <li class="privacy-item">
+                                <section aria-labelledby="use-heading">
+                                    <h2 id="use-heading" class="privacy-heading">How We Use Your Information</h2>
+                                    <p>
+                                        We use your information to process orders, respond to inquiries, improve
+                                        our products and services, and keep you informed about updates and promotions.
+                                    </p>
+                                </section>
+                            </li>
+
+                            <li class="privacy-item">
+                                <section aria-labelledby="protect-heading">
+                                    <h2 id="protect-heading" class="privacy-heading">How We Protect Your Information</h2>
+                                    <p>
+                                        We take reasonable steps to protect your personal information from
+                                        unauthorized access, use or disclosure. Your information is stored securely
+                                        and only accessed by authorized personnel.
+                                    </p>
+                                </section>
+                            </li>
+
+                            <li class="privacy-item">
+                                <section aria-labelledby="share-heading">
+                                    <h2 id="share-heading" class="privacy-heading">Sharing Information</h2>
+                                    <p>
+                                        We do not sell, trade, or rent your personal information to third parties.
+                                        We may share your information with trusted service providers only to help
+                                        us operate our business (e.g. shipping partners), and only to the extent necessary.
+                                    </p>
+                                </section>
+                            </li>
+
+                            <li class="privacy-item">
+                                <section aria-labelledby="contact-heading">
+                                    <h2 id="contact-heading" class="privacy-heading">Contact Us</h2>
+                                    <p>
+                                        If you have any questions about this Privacy Policy or how we handle your
+                                        information, please contact us at
+                                        <a class="privacy-email" href="mailto:hello@examplewebsite142.com?subject=Privacy%20Policy%20Question">hello@examplewebsite142.com</a>.
+                                    </p>
+                                    <a class="btn btn-privacy" href="contact.html">Contact Us</a>
+                                </section>
+                            </li>
+
+                        </ol>
+                    </article>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-inner">
+
+            <a href="index.html" class="footer-logo">
+                <img src="images/hightees-logo.png" alt="HighTees home" class="footer-logo-img" width="141" height="44">
+            </a>
+
+            <div class="footer-center">
+                <nav class="footer-links" aria-label="Footer">
+                    <a href="contact.html">Contact Us</a>
+                    <a href="privacy.html" aria-current="page">Privacy Policy</a>
+                    <a href="#">Terms and Conditions</a>
+                </nav>
+                <p class="copyright">© 2026 HighTees. All rights reserved.</p>
+            </div>
+
+            <div class="footer-spacer" aria-hidden="true"></div>
+
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
