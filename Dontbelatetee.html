@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Don’t Be Late Tee | HighTees</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f4f7fc; color: #1f2350; }
+    a { color: #1f2350; }
+    :focus-visible { outline: 3px solid #0b57d0; outline-offset: 2px; }
+
+
+    header { background: #7cc5ff; display: flex; justify-content: space-between; align-items: center; padding: 0 1.5rem; flex-wrap: wrap; }
+    header img { height: 56px; display: block; }
+    nav a { margin-left: 1.5rem; font-weight: bold; text-decoration: none; display: inline-block; padding: .8rem 0; }
+
+
+    main { max-width: 1100px; margin: 2rem auto; padding: 0 1.25rem; }
+    .panel { background: #c8dcfc; border-radius: 18px; padding: 2rem; display: grid; gap: 2rem; }
+    @media (min-width: 800px) { .panel { grid-template-columns: 1fr 1fr; } }
+
+
+    .photo { background: #fff; border-radius: 12px; min-height: 300px; display: flex; align-items: center; justify-content: center; }
+    .photo img { max-width: 100%; }
+
+
+    .sizes label { display: inline-block; background: #fff; border: 2px solid #1f2350; border-radius: 8px; padding: .6rem 1rem; margin: 0 .4rem .4rem 0; font-weight: bold; cursor: pointer; }
+    .sizes input { position: absolute; opacity: 0; }
+    .sizes label:hover { background: #7CC6FE; border-color: #7CC6FE; }
+    .sizes input:checked + label { background: #7CC6FE; color: #25234A; border-color: #7CC6FE; }
+    .sizes input:focus-visible + label { outline: 3px solid #0b57d0; outline-offset: 2px; }
+
+
+    .quantity-options { display: flex; align-items: center; gap: 16px; margin-bottom: 1.5rem; }
+    .quantity-options #qty { min-width: 1.5rem; text-align: center; font-size: 1.1rem; }
+    button.qty-btn { background: #f8f9fa; color: #25234A; border: 0; border-radius: 8px; padding: .6rem 1rem; font-size: 1.1rem; line-height: 1.2; }
+    button.qty-btn:hover { background: #e9ecef; }
+    button { background: #1f2350; color: #fff; border: 0; border-radius: 999px; padding: .8rem 2rem; font-size: 1rem; font-weight: bold; cursor: pointer; }
+    .icon-buttons { display: flex; gap: .5rem; margin-bottom: 1rem; }
+    .icon-btn { background: #fff; color: #1f2350; border: 2px solid #1f2350; border-radius: 50%; width: 2.6rem; height: 2.6rem; padding: 0; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; }
+    .icon-btn.active { background: #7CC6FE; color: #25234A; border-color: #7CC6FE; }
+    button.secondary { background: #7CC6FE; color: #25234A; border: 2px solid #7CC6FE; margin-left: .5rem; }
+    button.secondary:hover { background: #8EE3D8; border-color: #8EE3D8; }
+    #msg { font-weight: bold; min-height: 1.5rem; }
+
+
+    footer { text-align: center; font-size: .85rem; padding: 2rem 1rem; }
+    footer a { margin: 0 .8rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html"><img src="HighTees.png" alt="HighTees home"></a>
+    <nav aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+
+  <main>
+    <div class="panel">
+      <div class="photo">
+        <img src="dont-be-late-tee.png" alt="Don’t Be Late Tee">
+      </div>
+
+
+      <div>
+        <div class="icon-buttons">
+          <button type="button" class="icon-btn" aria-label="Rate" aria-pressed="false"><i class="bi bi-star"></i></button>
+          <button type="button" class="icon-btn" aria-label="Favorite" aria-pressed="false"><i class="bi bi-heart"></i></button>
+          <button type="button" class="icon-btn" aria-label="Comment" aria-pressed="false"><i class="bi bi-chat"></i></button>
+          <button type="button" class="icon-btn" aria-label="Notify me" aria-pressed="false"><i class="bi bi-bell"></i></button>
+          <button type="button" class="icon-btn" aria-label="Share" aria-pressed="false"><i class="bi bi-people"></i></button>
+        </div>
+        <h1>Don’t Be Late Tee</h1>
+        <p><strong>₱499</strong></p>
+        <p>A soft, relaxed-fit tee made for all-day wear.</p>
+
+
+        <form id="form">
+          <p><strong>Size</strong></p>
+          <div class="sizes">
+            <input type="radio" name="size" id="s" value="S"><label for="s">S</label>
+            <input type="radio" name="size" id="m" value="M"><label for="m">M</label>
+            <input type="radio" name="size" id="l" value="L"><label for="l">L</label>
+            <input type="radio" name="size" id="xl" value="XL"><label for="xl">XL</label>
+          </div>
+
+
+          <p id="qty-label"><strong>Quantity</strong></p>
+          <div class="quantity-options" role="group" aria-labelledby="qty-label">
+            <button type="button" class="qty-btn" id="minus" aria-label="Decrease quantity">−</button>
+            <span id="qty" aria-live="polite">1</span>
+            <button type="button" class="qty-btn" id="plus" aria-label="Increase quantity">+</button>
+          </div>
+
+
+          <button type="submit">Add to cart</button>
+          <button type="button" id="order" class="secondary">Order now</button>
+          <p id="msg" role="status"></p>
+        </form>
+
+
+        <details open>
+          <summary>Product details</summary>
+          <ul>
+            <li>Soft cotton fabric</li>
+            <li>Relaxed, unisex fit</li>
+            <li>Machine washable</li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </main>
+
+
+  <footer>
+    <a href="contact.html">Contact Us</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms and Conditions</a>
+    <p>©2026 HighTees</p>
+  </footer>
+
+
+  <script>
+    document.getElementById('form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var size = document.querySelector('input[name=size]:checked');
+      var msg = document.getElementById('msg');
+      msg.textContent = size
+        ? 'Added to cart: ' + document.getElementById('qty').textContent + ' x Don’t Be Late Tee (' + size.value + ')'
+        : 'Please choose a size.';
+    });
+
+    var qtyEl = document.getElementById('qty');
+    document.getElementById('plus').addEventListener('click', function () {
+      var n = parseInt(qtyEl.textContent, 10);
+      if (n < 10) qtyEl.textContent = n + 1;
+    });
+    document.getElementById('minus').addEventListener('click', function () {
+      var n = parseInt(qtyEl.textContent, 10);
+      if (n > 1) qtyEl.textContent = n - 1;
+    });
+
+    document.querySelectorAll('.icon-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var on = this.classList.toggle('active');
+        this.setAttribute('aria-pressed', on);
+      });
+    });
+
+    document.getElementById('order').addEventListener('click', function () {
+      var size = document.querySelector('input[name=size]:checked');
+      var msg = document.getElementById('msg');
+      msg.textContent = size
+        ? 'Order placed: ' + document.getElementById('qty').textContent + ' x Don’t Be Late Tee (' + size.value + ')'
+        : 'Please choose a size.';
+    });
+  </script>
+</body>
+</html>
