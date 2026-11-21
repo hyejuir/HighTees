@@ -1,0 +1,396 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f7fc;
+  color: #1f2a44;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+.price {
+  font-weight: bold;
+  margin: 5px 0 10px;
+}
+
+
+.navbar {
+  background-color: #7cc5ff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+}
+
+.logo {
+  height: 60px;
+}
+
+.navbar nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 40px;
+}
+
+.navbar nav a:hover {
+  text-decoration: underline;
+}
+
+
+footer {
+  background-color: #7cc5ff;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 40px;
+  font-size: 13px;
+}
+
+footer .logo {
+  height: 70px;
+  position: absolute;
+  left: 40px;
+}
+
+footer.light {
+  background-color: white;
+  padding: 15px 40px;
+}
+
+div.links {
+  text-align: center;
+}
+
+div.links a {
+  margin: 0 10px;
+}
+
+
+section.Effortless {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 20px 40px;
+}
+
+.Effortless .text {
+  flex: 1;
+  margin-left: 50px;
+}
+
+.Effortless .text h1 {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+.Effortless .text p {
+  font-size: 30px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.button {
+  background-color: #7cc5ff;
+  padding: 12px 24px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.button:hover {
+  background-color: #5fb3f5;
+}
+
+.Effortless .img {
+  flex: 0 0 auto;
+  width: 550px;
+  max-width: 100%;
+  background-color: #7cc5ff;
+  padding: 15px;
+}
+
+.Effortless .img img {
+  display: block;
+  width: auto;
+}
+
+.featured {
+  background-color: white;
+  padding: 40px;
+  text-align: center;
+}
+
+.Merchandise {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.Tee {
+  width: 240px;
+  border: 1px solid #a6e3e9;
+  padding: 15px;
+}
+
+.Tee h3 {
+  margin: 10px 0 5px;
+}
+
+.about {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 50px 40px;
+}
+
+.about img {
+  width: 300px;
+}
+
+.about p {
+  line-height: 1.6;
+}
+
+
+main.shop {
+  background-color: white;
+  padding: 50px 60px;
+}
+
+main.shop h1 {
+  margin-bottom: 5px;
+}
+
+.shop-subtitle {
+  font-style: italic;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.shop.box {
+  background-color: #bde0fe;
+  border-radius: 15px;
+  padding: 30px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.shop.item {
+  width: 220px;
+}
+
+.shop.item img {
+  display: block;
+  width: 100%;
+}
+
+.shop.item h3 {
+  margin: 10px 0 5px;
+}
+
+
+.product-page {
+  background-color: white;
+  padding: 25px 40px 40px;
+}
+
+.back-button {
+  display: inline-block;
+  border: 1px solid #1f2a44;
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.back-button:hover {
+  background-color: #bde0fe;
+}
+
+.product-box {
+  background-color: #bde0fe;
+  padding: 30px;
+  display: flex;
+  gap: 40px;
+}
+
+.product-photo {
+  background-color: white;
+  width: 350px;
+  max-width: 100%;
+}
+
+.product-photo img {
+  display: block;
+  width: 100%;
+}
+
+.product-info {
+  flex: 1;
+}
+
+.product-info h1 {
+  margin: 0 0 5px;
+}
+
+.description {
+  background-color: #7ba3bd;
+  padding: 10px;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.sizes input {
+  display: none;
+}
+
+.sizes label {
+  display: inline-block;
+  background-color: white;
+  border: 1px solid #1f2a44;
+  border-radius: 10px;
+  padding: 8px 14px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.sizes input:checked + label {
+  background-color: #7cc5ff;
+  font-weight: bold;
+}
+
+.quantity {
+  display: inline-block;
+  background-color: white;
+  border-radius: 15px;
+  padding: 5px 10px;
+}
+
+.quantity button {
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 50%;
+  background-color: #bbb;
+  cursor: pointer;
+}
+
+.quantity span {
+  display: inline-block;
+  width: 30px;
+  text-align: center;
+}
+
+.product-buttons {
+  margin: 20px 0;
+}
+
+.product-buttons button {
+  background-color: white;
+  border: 1px solid #1f2a44;
+  border-radius: 20px;
+  padding: 10px 40px;
+  margin-right: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.product-buttons button:hover {
+  background-color: #7cc5ff;
+}
+
+details summary {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.policy-page {
+  padding: 40px 20px 60px;
+}
+
+.policy-page h1 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.policy-card {
+  background-color: white;
+  border: 1px solid #d5d9e0;
+  border-radius: 10px;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 40px 50px;
+}
+
+.policy-item {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.policy-item:last-child {
+  margin-bottom: 0;
+}
+
+.policy-number {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #7cc5ff;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.policy-item h3 {
+  margin: 3px 0 8px;
+  font-size: 15px;
+}
+
+.policy-item p {
+  margin: 0 0 12px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.policy-item .button {
+  display: inline-block;
+  padding: 6px 16px;
+  font-size: 12px;
+  border-radius: 20px;
+  margin-left: 0;
+}
+.TnC_main {
+  text-align: center;
+  font-size: 20px;
+}
+.TnC{
+ font-size: 20px;
+ align-items: center;
+ display: inline-block;
+ padding: 0px 70px;
+ padding-bottom: 20px;
+}
