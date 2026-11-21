@@ -1,5 +1,3 @@
-// Quantity buttons and cart messages for the product pages
-
 var quantity = 1;
 var qtyText = document.getElementById("qty");
 
