@@ -1,3 +1,9 @@
+document.getElementById("contact-form")?.addEventListener("submit", function (event) {
+  event.preventDefault();
+  alert("Thank you! Your message has been sent.");
+  this.reset();
+});
+
 var quantity = 1;
 var qtyText = document.getElementById("qty");
 
