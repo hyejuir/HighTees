@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HighTees | Everyday Comfort Tee</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+  <header class="navbar">
+    <a href="Home.html"><img src="hightees-logo.png" alt="HighTees logo" class="logo"></a>
+    <nav>
+      <a href="Home.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="product-page">
+    <a href="shop.html" class="back-button">Back to Shop</a>
+
+    <div class="product-box">
+
+  
+      <div class="product-photo">
+        <img src="everyday-comfort-tee.png" alt="Everyday Comfort Tee">
+      </div>
+
+ 
+      <div class="product-info">
+        <h1>Everyday Comfort Tee</h1>
+        <p class="price">₱499</p>
+
+        <p class="description">A cozy white tee with a cheerful little bear on a soft yellow star. Made for lazy mornings, errands and everything in between.</p>
+
+        <h3>Size</h3>
+        <div class="sizes">
+          <input type="radio" name="size" id="size-s" value="S" checked>
+          <label for="size-s">S</label>
+          <input type="radio" name="size" id="size-m" value="M">
+          <label for="size-m">M</label>
+          <input type="radio" name="size" id="size-l" value="L">
+          <label for="size-l">L</label>
+          <input type="radio" name="size" id="size-xl" value="XL">
+          <label for="size-xl">XL</label>
+        </div>
+
+        <h3>Quantity</h3>
+        <div class="quantity">
+          <button type="button" id="minus">-</button>
+          <span id="qty">1</span>
+          <button type="button" id="plus">+</button>
+        </div>
+
+        <div class="product-buttons">
+          <button type="button" id="add-to-cart">Add to Cart</button>
+          <button type="button" id="order">Order</button>
+        </div>
+
+        <details>
+          <summary>Product details</summary>
+          <p>Material: 100% soft cotton.<br>Fit: Regular, unisex.<br>Care: Machine wash cold, do not bleach.</p>
+        </details>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
