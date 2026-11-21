@@ -8,270 +8,73 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --blue: #79c3f5;
-      --blue-dark: #58afea;
-      --ink: #26344f;
-      --page: #f3f7fd;
-      --white: #fff;
-      --line: #d5d5d5;
-    }
-
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      padding: 0;
-      background: var(--page);
-      color: var(--ink);
-      font-family: 'Inter', sans-serif;
-    }
+    body { margin: 0; background: #f3f7fd; color: #26344f; font-family: 'Inter', sans-serif; }
+    .page-label { display: none; }
+    .site { min-height: 100vh; display: flex; flex-direction: column; }
 
-    .page-label {
-      display: none;
-    }
 
-    .site {
-      width: 100%;
-      max-width: none;
-      min-height: 100vh;
-      margin: 0;
-      background: var(--page);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
+    /* Header and footer */
+    .navbar, footer { background: #79c3f5; padding: 14px 6%; }
+    .navbar { display: flex; justify-content: space-between; align-items: center; }
+    .navbar .logo img { width: 170px; display: block; }
+    footer .logo img { width: 130px; display: block; }
 
-    .navbar {
-      min-height: 63px;
-      padding: 0 6.2% 0 4.6%;
-      background: var(--blue);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 28px;
-    }
+    .nav-links { display: flex; gap: 60px; }
+    .nav-links a { color: #fff; font-size: 14px; font-weight: 600; text-decoration: none; }
+    .nav-links a:hover { opacity: .6; }
 
-    .navbar .logo img {
-    width: 170px;
-    height: auto;
-    display: block;
-    object-fit: contain;
-    }
+    footer { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
+    .footer-content { text-align: center; font-size: 10px; }
+    .footer-links { display: flex; justify-content: center; gap: 48px; margin-bottom: 10px; }
+    .footer-links a { color: #111d32; }
+    .copyright { margin: 0; }
 
-    footer .logo img {
-        width: 130px;
-        height: auto;
-    }
 
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: clamp(28px, 7vw, 96px);
-    }
-    .nav-links a {
-      color: #FFFFFF;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: opacity .2s ease;
-    }
-    .nav-links a:hover, .nav-links a:focus { opacity: .62; }
+    /* Page content */
+    main { flex: 1; padding: 46px 10.8% 36px; }
+    h1 { margin: 0 0 39px; text-align: center; font-size: 40px; font-weight: 800; }
 
-    main {
-      width: 100%;
-      flex: 1;
-      padding: 46px 10.8% 36px;
-    }
 
-    h1 {
-      margin: 0 0 39px;
-      text-align: center;
-      font-size: clamp(30px, 3.5vw, 40px);
-      line-height: 1.2;
-      font-weight: 800;
-      letter-spacing: .2px;
-    }
-
-    .info-cards {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 5.8%;
-      margin-bottom: 26px;
-    }
-
-    .info-card {
-      min-height: 121px;
-      padding: 17px 10px 13px;
-      background: var(--white);
-      border: 1.5px solid #c9c9c9;
-      border-radius: 6px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: var(--ink);
-      text-decoration: none;
-      box-shadow: 0 0 1px rgba(0,0,0,.08);
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-    .info-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 5px 14px rgba(38,52,79,.10);
-    }
-    .info-card svg {
-      width: 25px;
-      height: 25px;
-      margin-bottom: 5px;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
+    /* Info cards */
+    .info-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6%; margin-bottom: 50px; }
+    .info-card { min-height: 121px; padding: 17px 10px; background: #fff; border: 1.5px solid #c9c9c9; border-radius: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: inherit; text-decoration: none; }
+    .info-card svg { width: 25px; height: 25px; margin-bottom: 5px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
     .info-card strong { font-size: 13px; margin-bottom: 4px; }
-    .info-card span { font-size: 10px; line-height: 1.35; }
+    .info-card span { font-size: 10px; }
 
-    .contact-area {
-      display: grid;
-      grid-template-columns: 1fr 1.52fr;
-      gap: 9%;
-      align-items: start;
-      margin-top: 25px;
-    }
 
-    .intro { padding-top: 3px; }
-    .intro h2 {
-      margin: 0 0 24px;
-      font-size: 13px;
-      font-weight: 800;
-    }
-    .intro p {
-      max-width: 260px;
-      margin: 0;
-      font-size: 11px;
-      line-height: 1.55;
-    }
+    /* Message section */
+    .contact-area { display: grid; grid-template-columns: 1fr 1.5fr; gap: 9%; }
+    .intro h2 { margin: 0 0 24px; font-size: 13px; font-weight: 800; }
+    .intro p { max-width: 260px; margin: 0; font-size: 11px; line-height: 1.5; }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    input, textarea {
-      width: 100%;
-      border: 1px solid #d5d5d5;
-      border-radius: 0;
-      background: #fff;
-      color: var(--ink);
-      font: inherit;
-      font-size: 10px;
-      padding: 0 12px;
-      outline: none;
-      transition: border-color .2s, box-shadow .2s;
-    }
+    form { display: flex; flex-direction: column; gap: 8px; }
+    input, textarea { width: 100%; padding: 0 12px; border: 1px solid #d5d5d5; color: inherit; font: inherit; font-size: 10px; }
     input { height: 33px; }
-    textarea {
-      min-height: 88px;
-      resize: vertical;
-      padding-top: 10px;
-    }
-    input:focus, textarea:focus {
-      border-color: var(--blue-dark);
-      box-shadow: 0 0 0 2px rgba(121,195,245,.18);
-    }
-    input::placeholder, textarea::placeholder { color: #35415a; opacity: 1; }
-    textarea::placeholder { font-weight: 700; }
+    textarea { min-height: 88px; padding-top: 10px; resize: vertical; }
+    input:focus, textarea:focus { outline: none; border-color: #58afea; }
+    ::placeholder { color: #35415a; }
 
-    .submit-button {
-      width: 192px;
-      max-width: 100%;
-      min-height: 30px;
-      margin-top: 12px;
-      border: 1px solid #1c2a43;
-      border-radius: 20px;
-      background: var(--blue);
-      color: #14233c;
-      font-family: inherit;
-      font-size: 10px;
-      cursor: pointer;
-      transition: background .2s, transform .2s;
-    }
-    .submit-button:hover { background: var(--blue-dark); transform: translateY(-1px); }
-    .submit-button:disabled { opacity: .65; cursor: wait; }
+    .submit-button { width: 192px; margin-top: 12px; padding: 9px; border: 1px solid #1c2a43; border-radius: 20px; background: #79c3f5; color: #14233c; font: inherit; font-size: 10px; cursor: pointer; }
+    .submit-button:hover { background: #58afea; }
+    .submit-button:disabled { opacity: .6; }
 
-    .form-status {
-      min-height: 16px;
-      margin: 2px 0 0;
-      font-size: 11px;
-      line-height: 1.4;
-    }
+    .form-status { min-height: 16px; margin: 0; font-size: 11px; }
     .form-status.error { color: #b42318; }
     .form-status.success { color: #187344; }
 
-    footer {
-      position: relative;
-      min-height: 88px;
-      padding: 18px 6.2%;
-      background: var(--blue);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-    footer .logo { font-size: 21px; }
-    .footer-content {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      margin-right: 0;
-      font-size: 10px;
-    }
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 48px;
-    }
-    .footer-links a { color: #111d32; text-decoration: underline; }
-    .copyright { margin: 0; }
 
-    @media (min-width: 1300px) {
-      main { padding-top: 52px; }
+    /* Phones */
+    @media (max-width: 700px) {
+      .navbar { flex-wrap: wrap; gap: 12px; }
+      .nav-links { gap: 24px; }
+      .info-cards, .contact-area { grid-template-columns: 1fr; gap: 16px; }
+      main { padding: 36px 7%; }
+      footer { display: flex; flex-direction: column; gap: 16px; }
+      .footer-links { flex-wrap: wrap; gap: 18px; }
     }
-    @media (max-width: 760px) {
-      body { padding: 0; }
-      .page-label { margin-top: 12px; }
-      .navbar { padding: 17px 22px; flex-wrap: wrap; }
-      .nav-links { width: 100%; justify-content: space-between; gap: 12px; }
-      .nav-links a { font-size: 13px; }
-      main { padding: 36px 7% 32px; }
-      h1 { margin-bottom: 28px; }
-      .info-cards { gap: 12px; }
-      .info-card { min-height: 116px; }
-      .contact-area { gap: 28px; grid-template-columns: 1fr 1.5fr; }
-      .footer-content {
-        position: static;
-        transform: none;
-        margin-right: 0;
-      }
-      .footer-links { gap: 20px; }
-    }
-    @media (max-width: 560px) {
-      .info-cards { grid-template-columns: 1fr; gap: 12px; }
-      .info-card { min-height: 105px; }
-      .contact-area { grid-template-columns: 1fr; gap: 22px; }
-      .intro p { max-width: 100%; }
-      footer { flex-direction: column; justify-content: center; padding: 22px 16px; gap: 18px; }
-      .footer-content { gap: 12px; }
-      .footer-links { gap: 18px; }
-    }
-  </style>
+</style>
 </head>
 <body>
   <div class="page-label">Contacts</div>
@@ -283,7 +86,7 @@
 </a>
       <nav class="nav-links" aria-label="Main navigation">
         <a href="index.html">Home</a>
-        <a href="shop.html">Shop</a>
+        <a href="Hightee_Shop.html">Shop</a>
         <a href="about.html">About</a>
         <a href="#contact">Contact</a>
       </nav>
