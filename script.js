@@ -29,3 +29,9 @@ document.getElementById("add-to-cart").addEventListener("click", function () {
 document.getElementById("order").addEventListener("click", function () {
   alert("Thank you! Your order of " + quantity + " shirt(s), size " + getSize() + " was placed.");
 });
+
+document.getElementById("contact-form").addEventListener("submit", function (event) {
+  event.preventDefault();
+  alert("Thank you! Your message has been sent.");
+  this.reset();
+});
